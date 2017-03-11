@@ -20,7 +20,7 @@
   vérifier que le numéro de téléphone ne comporte que des chiffres,
   et que le nom et le prénom ne contiennent que des lettres ou des tirets.*/
   $(document).ready(function(){
-    //ici je crée me variable avec des REGEX que j'ai fait comme un grand
+    //ici je declare mes variables avec des REGEX que j'ai fait comme un grand
     var regexNom = /[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+[\-]?[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+/i;
     var regexMail = /^[\w\-]+[@]{1}[a-z]+[\.]{1}[a-z]{2,6}/i;
     var regexTel = /[0]{1}[0-9]{1}[\.]{1}[0-9]{2}[\.]{1}[0-9]{2}[\.]{1}[0-9]{2}[\.]{1}[0-9]{2}/;
@@ -35,7 +35,7 @@
       };
       if (regexMail.test($('#mail').val()) == false){
         alert('votre adresse doit ressemblée à kikou@lol.go');
-      };
+      };//l'alert conditionne la reponse de l'intervenent
       if (regexTel.test($('#phone').val()) == false){
         alert('exemple de tel !01.02.03.04.05!');
         //sinon alerte de remeriment
