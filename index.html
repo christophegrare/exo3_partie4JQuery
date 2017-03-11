@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>exercice 3 partie 4</title>
+</head>
+<body>
+  <form class="" action="index.html" method="post">
+    <input type="text" name="" value="" placeholder="nom" id="name"><br/>
+    <input type="text" name="" value="" placeholder="prénom" id="firstname"><br/>
+    <input type="text" name="" value="" placeholder="adresse mail @" id="mail"><br/>
+    <input type="text" name="" value="" placeholder="numéro de téléphone" id="phone"><br/>
+    <button type="button" name="button" id="enter">valider</button> <br/>
+  </form>
+  <script src="jquery-2.2.4.js"></script>
+  <script>
+  /*Créer un formulaire qui demande le nom, le prénom,
+  l'adresse mail et le numéro de téléphone de l'utilisateur.
+  Verifier que l'adresse mail est bien une adresse mail,
+  vérifier que le numéro de téléphone ne comporte que des chiffres,
+  et que le nom et le prénom ne contiennent que des lettres ou des tirets.*/
+  $(document).ready(function(){
+    //ici je crée me variable avec des REGEX que j'ai fait comme un grand
+    var regexNom = /[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+[\-]?[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+/i;
+    var regexMail = /^[\w\-]+[@]{1}[a-z]+[\.]{1}[a-z]{2,6}/i;
+    var regexTel = /[0]{1}[0-9]{1}[\.]{1}[0-9]{2}[\.]{1}[0-9]{2}[\.]{1}[0-9]{2}[\.]{1}[0-9]{2}/;
+    $('#enter').click(function(){
+      /*je demande a mes regex de faire .test est si c pas bon me
+      retourne une alerte*/
+      if(regexNom.test($('#name').val()) == false){
+        alert('Il doit y avoir une erreur à votre Nom');
+      };
+      if (regexNom.test($('#firstname').val()) == false){
+        alert('alors on ne sait plus écrire son petit prénom.');
+      };
+      if (regexMail.test($('#mail').val()) == false){
+        alert('votre adresse doit ressemblée à kikou@lol.go');
+      };
+      if (regexTel.test($('#phone').val()) == false){
+        alert('exemple de tel !01.02.03.04.05!');
+        //sinon alerte de remeriment
+      }else {
+        alert('Merci de nous avoir accordé de votre temps.')
+      };
+    });
+  });
+  </script>
+</body>
+</html>
